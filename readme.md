@@ -1,0 +1,16 @@
+1、首先，运行getfeaturescript.m可以得到检测“RoadPic”的检测结果，not found的表示没有检测到足够可信的圆，否则就是检测到圆了，并且会弹出对应路径的检测结果图片。其次运行huJudgescript.m文件来进行训练和测试，会弹出一张图，用hu不变矩前两维度做出样本的分布，并且图的标题显示了在测试集上的准确率，等待十秒后，会弹出训练集的分布和准确率
+2、可以调整的参数有buildSimpleStump.m中的numSteps参数，是对每个特征可以划分几个，选择其中最好效果的一个分类，还有一个可以调的参数，huJudgescript.m中的iter，代表弱分类器个数
+adaboost_predict是预测
+adaboost_train是训练
+adaBoostTrainDs是存下来第几个分类器，阈值和direction等专门一个函数
+buildSimpleStump是弱分类器分类的一个函数
+claheutil.m是我用来测试的，用不上
+clipHistogram看函数里面说明叭，这个用的现成的，是将亮度设为一个范围内
+getfeature是计算hu不变矩的函数
+getfeaturescript是得到那个RoadPic的特征，提取到mat后缀的文件，是一个脚本
+huJudgescript是最后的预测和训练脚本文件
+makeClaheImage是进行自适应的一个函数
+makeMapping也是亮度自适应的函数，函数里面有说明，但是是英文的
+myCLAHE是分块然后进行亮度自适应，要调用自适应函数，直接调用这个就行了
+myhsvdisplay是hsv提取红色后转为RGB空间了的函数
+zhaoyuan就是hough变换剪切出圆的函数，里面输入的是亮度自适应的函数处理后的图片，也就是调用了myClAHE函数
